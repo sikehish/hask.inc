@@ -1,7 +1,9 @@
 import { NavLink, BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import './App.css';
+import Create from './components/Create';
 import Home from './components/Home';
 import LogIn from './components/LogIn';
+import Navbar from './components/Navbar';
 import SignUp from './components/SignUp';
 
 function App() {
@@ -9,13 +11,7 @@ function App() {
     <div className="container-fluid App d-flex justify-content-center align-items-center flex-column" style={{minHeight:"100vh"}}>
 
       <BrowserRouter>
-      <nav class>
-        <h1>Innovify</h1>
-        <NavLink exact to='/'>Home</NavLink>
-        <NavLink to='/login'>Log In</NavLink>
-        <NavLink to='/signup'>Sign Up</NavLink>
-      </nav>
-
+      <Navbar />
       <Switch>
       <Route exact path='/'> 
         <Home />
@@ -25,6 +21,9 @@ function App() {
       </Route>
       <Route path='/login'>
         <LogIn />
+      </Route>
+      <Route path='/create'>
+        <Create />
       </Route>
       <Route path='*'>
         <Redirect to='/' />
