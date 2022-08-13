@@ -11,7 +11,7 @@ import Posts from './components/Posts';
 
 function App() {
   return (
-    <div className="container-fluid App d-flex justify-content-center align-items-center flex-column" style={{minHeight:"100vh"}}>
+    <div className="container-fluid App d-flex  align-items-center flex-column" style={{minHeight:"100vh"}}>
 
       <BrowserRouter>
       <AuthProvider>

@@ -35,10 +35,12 @@ export default function LogIn() {
           <form onSubmit={handleSubmit}>
 
             <label id="email">
+              <span>Email:</span>
               <input type="email" ref={emailRef} required />
             </label>
 
             <label id="password">
+            <span>Password:</span>
               <input type="password" ref={passwordRef} required />
             </label>
 
