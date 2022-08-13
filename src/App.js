@@ -7,6 +7,7 @@ import LogIn from './components/LogIn';
 import Navbar from './components/Navbar';
 import SignUp from './components/SignUp';
 import Panel from './components/Panel';
+import Posts from './components/Posts';
 
 function App() {
   return (
@@ -26,8 +27,11 @@ function App() {
       <Route path='/login'>
         <LogIn />
       </Route>
-      <Route exact path='/create'>
+      <Route path='/create'>
         <Create />
+      </Route>
+      <Route path='/posts'>
+        <Posts />
       </Route>
       <Route path='*'>
         <Redirect to='/' />

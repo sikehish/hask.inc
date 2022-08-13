@@ -11,7 +11,7 @@ export default function Navbar() {
       <nav className='navtabs'>
         <h1>Innovify</h1>
         <NavLink to='/home'>Home</NavLink>     
-        {user &&  <div><NavLink onClick={logout} to='/login'>Log Out</NavLink>  <NavLink to='/panel'>Profile</NavLink></div>}
+        {user &&  <div><NavLink onClick={logout} to='/login'>Log Out</NavLink>  <NavLink to='/panel'>Profile</NavLink> <NavLink to='/create'>Create Posts</NavLink> <NavLink to='/posts'>See Posts</NavLink></div>}
         {!user &&  <div><NavLink to='/login'>Log In</NavLink>  <NavLink to='/signup'>Sign Up</NavLink></div>}
       </nav>
     </div>

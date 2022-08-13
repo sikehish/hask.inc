@@ -30,7 +30,8 @@ export default function SignUp() {
         }
     
         setLoading(true)
-        await signup(emRef.current.value,cpwRef.current.value)
+        const cred=await signup(emRef.current.value,cpwRef.current.value)
+        // console.log(cred.user.uid);
         history.push("/login")
       } catch(err) {
         setError(err)
