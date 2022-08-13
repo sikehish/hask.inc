@@ -11,9 +11,9 @@ export default function SignUp() {
     // console.log(emRef.current.value)
 
   return (
-    <div className="w-100" style={{maxWidth:"400px"}}>
+    <div className="w-100 mt-4" style={{maxWidth:"400px"}}>
     <div className="card">
-    <div className="card-body">Basic card</div>
+    <div className="card-body">
     <h2>Sign Up</h2>
     <form>
     <label id="email" className='my-3 form-label col-lg-8 col-md-8 col-sm-8'>
@@ -34,6 +34,7 @@ export default function SignUp() {
     </div>
 
     <div className='w-100 text-justify'>Log In</div>
+    </div>
     </div>
   )
 }
