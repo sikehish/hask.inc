@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom"
 export default function LogIn() {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const { login } = useAuth()
+  const  {isLogged,user,login,signup,logout,funcLogIn,funcLogOut} = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
@@ -17,7 +17,7 @@ export default function LogIn() {
       setError("")
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      history.push("/panel")
+      history.push("/create")
     } catch {
       setError("Failed to log in")
     }

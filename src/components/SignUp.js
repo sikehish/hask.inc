@@ -8,7 +8,7 @@ export default function SignUp() {
     const emRef=useRef()
     const pwRef=useRef()
     const cpwRef=useRef()
-    const { signup } = useAuth()
+    const  {isLogged,user,login,signup,logout,funcLogIn,funcLogOut} = useAuth()
     const [loading, setLoading] = useState(false)
     const history = useHistory()
     // console.log(emRef.current.value)
@@ -31,7 +31,7 @@ export default function SignUp() {
     
         setLoading(true)
         await signup(emRef.current.value,cpwRef.current.value)
-        history.push("/panel")
+        history.push("/login")
       } catch(err) {
         setError(err)
       }

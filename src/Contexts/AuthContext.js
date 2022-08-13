@@ -11,25 +11,19 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [user, setUser] = useState()
   const [isLoading, setIsLoading] = useState(true)
+  const [isLogged, setIsLogged] = useState(false)
 
-  const signup = (email, password) => auth.createUserWithEmailAndPassword(email, password)
+  const signup = (email, password) =>{
+   return  auth.createUserWithEmailAndPassword(email, password)
+  } 
 
   const login = (email, password) => auth.signInWithEmailAndPassword(email, password)
 
   const logout = () => auth.signOut()
 
+  const funcLogIn = () => setIsLogged(true);
+  const funcLogOut = () => setIsLogged(false);
 
-  // function resetPassword(email) {
-  //   return auth.sendPasswordResetEmail(email)
-  // }
-
-  // function updateEmail(email) {
-  //   return currentUser.updateEmail(email)
-  // }
-
-  // function updatePassword(password) {
-  //   return currentUser.updatePassword(password)
-  // }
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -42,13 +36,13 @@ export function AuthProvider({ children }) {
   }, [])
 
   const value = {
+    isLogged,
     user,
     login,
     signup,
-    logout
-    // resetPassword,
-    // updateEmail,
-    // updatePassword
+    logout,
+    funcLogIn,
+    funcLogOut
   }
 
   return (
