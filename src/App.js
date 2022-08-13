@@ -7,7 +7,6 @@ import LogIn from './components/LogIn';
 import Navbar from './components/Navbar';
 import SignUp from './components/SignUp';
 import Panel from './components/Panel';
-import PvtRoute from './components/PvtRoute';
 
 function App() {
   return (
