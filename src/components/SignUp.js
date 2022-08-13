@@ -1,21 +1,50 @@
-import React, { useRef } from 'react'
+import React, { useState,useRef } from 'react'
 import "./SignUp.css"
-
+import { useAuth } from "../Contexts/AuthContext"
+import { Link, useHistory } from "react-router-dom"
 
 export default function SignUp() {
 
     const emRef=useRef()
     const pwRef=useRef()
     const cpwRef=useRef()
-
+    const { signup } = useAuth()
+    const [loading, setLoading] = useState(false)
+    const history = useHistory()
     // console.log(emRef.current.value)
+    
+    const [error, setError] = useState("")
+
+    async function handleSubmit(e) {
+
+      e.preventDefault() 
+      console.log(pwRef.current.value,emRef.current.value,cpwRef.current.value)
+  
+      // if (pwRef.current.value !== cpwRef.current.value) {
+      //   return setError("Passwords do not match")
+      // }
+  
+      try {
+        if (pwRef.current.value !== cpwRef.current.value) {
+          throw new Error("Passwords do not match")
+        }
+    
+        setLoading(true)
+        await signup(emRef.current.value,cpwRef.current.value)
+        history.push("/panel")
+      } catch(err) {
+        setError(err)
+      }
+  
+      // setLoading(false)
+    }
 
   return (
-    <div className="w-100 mt-4" style={{maxWidth:"400px"}}>
+    <div className="container-fluid mt-3 d-flex justify-content-center align-items-center" style={{maxWidth:"480px"}}>
     <div className="card">
-    <div className="card-body">
     <h2>Sign Up</h2>
-    <form>
+    {error && <div className="alert alert-danger">{error}</div>}
+    <form onSubmit={handleSubmit}>
     <label id="email" className='my-3 form-label col-lg-8 col-md-8 col-sm-8'>
         <span>Email</span>
         <input className="form-control" ref={emRef} type="email"  placeholder="Enter email" required/>
@@ -33,8 +62,7 @@ export default function SignUp() {
     </form>
     </div>
 
-    <div className='w-100 text-justify'>Log In</div>
-    </div>
+    <div className='w-100 text-justify'>Already have an account? <Link to="/login">Log In</Link></div>
     </div>
   )
 }

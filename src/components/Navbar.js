@@ -7,7 +7,7 @@ export default function Navbar() {
     <div className="navbar">
       <nav className='navtabs'>
         <h1>Innovify</h1>
-        <NavLink exact to='/'>Home</NavLink>
+        <NavLink to='/home'>Home</NavLink>
         <NavLink to='/login'>Log In</NavLink>
         <NavLink to='/signup'>Sign Up</NavLink>
       </nav>
