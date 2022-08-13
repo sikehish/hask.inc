@@ -12,7 +12,7 @@ const descRef = useRef();
 
 const handleSubmit= async (e)=>{
     e.preventDefault();
-    console.log(ideaRef.current.value,descRef.current.value);
+    // console.log(ideaRef.current.value,descRef.current.value);
   
     if(user){
       const enteredData=await db.collection('users').doc().set({
@@ -21,7 +21,7 @@ const handleSubmit= async (e)=>{
         description: descRef.current.value
       })
      const getData=await db.collection('users').doc(user.uid).get()
-     console.log(getData)
+    //  console.log(getData)
      
     }
     ideaRef.current.value='';

@@ -11,18 +11,13 @@ export default function SignUp() {
     const  {isLogged,user,login,signup,logout,funcLogIn,funcLogOut} = useAuth()
     const [loading, setLoading] = useState(false)
     const history = useHistory()
-    // console.log(emRef.current.value)
+
     
     const [error, setError] = useState("")
 
     async function handleSubmit(e) {
 
       e.preventDefault() 
-      console.log(pwRef.current.value,emRef.current.value,cpwRef.current.value)
-  
-      // if (pwRef.current.value !== cpwRef.current.value) {
-      //   return setError("Passwords do not match")
-      // }
   
       try {
         if (pwRef.current.value !== cpwRef.current.value) {
