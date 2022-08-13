@@ -1,9 +1,10 @@
 import './App.css';
+import SignUp from './components/SignUp';
 
 function App() {
   return (
-    <div className="container-fluid App">
-        <button className="btn btn-primary" >Hisham</button>
+    <div className="container-fluid App d-flex justify-content-center align-items-center">
+      <SignUp />
     </div>
   );
 }
